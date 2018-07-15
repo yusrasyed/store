@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular JS</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        .products{border:1px black solid; float left; width:320px; padding:10px; margins:10px;}
+        .cart{border:1px black solid;float left; width:320px; padding:10px; margins:10px;}
+    </style>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="myController">
+    <div class="products">
+        <h3> Products</h3>
+    <div ng-repeat="item in products">
+        <p>{{item.name}}</p>
+        <p>{{item.price}}</p>
+        <input type="button" value="add to cart" ng-click="addToCart(item)">
+    </div>
+</div>
+    <div class="cart">
+        <h3>Cart</h3>
+    <div ng-repeat="product in cart">
+        <p>{{product.name}} = Rs.{{product.price}}</p>
+    </div>
+    </div>
+    <div>
+        <h2>Total:{{total || 0}}</h2>
+    </div>
+</div>
+</body>
+</html>
